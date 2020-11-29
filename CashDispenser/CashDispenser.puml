@@ -1,0 +1,34 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+interface DispenseChain {
++ setNextChain(DispenseChain): void
++ dispense(Cash): void
+}
+
+class Euro50Dispenser {
++ Dispense50Euro()
++ setNextChain(DispenseChain): void
++ dispense(Cash): void
+}
+class Euro20Dispenser {
++ Dispense20Euro()
++ setNextChain(DispenseChain): void
++ dispense(Cash): void
+}
+class Euro10Dispenser {
++ Dispense10Euro()
++ setNextChain(DispenseChain): void
++ dispense(Cash): void
+}
+
+DispenseChain <|.. Euro50Dispenser
+DispenseChain <|.. Euro20Dispenser
+DispenseChain <|.. Euro10Dispenser
+
+note as N1
+Chain of Responsibility
+end note
+
+
+@enduml
